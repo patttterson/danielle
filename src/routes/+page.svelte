@@ -17,18 +17,18 @@
   </div>
 
   <div class="banner-right">
-    <button class="social-btn" aria-label="TAWS Discord">
+    <a href="https://discord.gg/taws" class="social-btn" aria-label="TAWS Discord">
       <i class="fab fa-discord social-icon"></i>
       Discord
-    </button>
-    <button class="social-btn" aria-label="TAWS Twitch">
+    </a>
+    <a href="https://twitch.tv/tetrioamateurweeklies" class="social-btn" aria-label="TAWS Twitch">
       <i class="fab fa-twitch social-icon"></i>
       Live
-    </button>
-    <button class="social-btn" aria-label="TAWS Youtube">
+    </a>
+    <a href="https://youtube.com/@tetrioamateurweeklies" class="social-btn" aria-label="TAWS Youtube">
       <i class="fab fa-youtube social-icon"></i>
       VODs
-    </button>
+    </a>
   </div>
 </div>
 
@@ -95,6 +95,10 @@
     gap: 8px;
     align-items: center;
     justify-content: flex-start;
+  }
+
+  .banner-right a {
+    text-decoration: none;
   }
 
   .social-btn {
