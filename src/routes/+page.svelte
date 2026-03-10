@@ -17,7 +17,7 @@
   </div>
 
   <div class="banner-right">
-    <a href="https://discord.gg/taws" class="social-btn" aria-label="TAWS Discord">
+    <a href="https://discord.gg/tetr-io-amateur-weeklies-599005375907495936" class="social-btn" aria-label="TAWS Discord">
       <i class="fab fa-discord social-icon"></i>
       Discord
     </a>
