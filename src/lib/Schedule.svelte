@@ -54,7 +54,9 @@
 		taws: [],
 		'taws-asia': [],
 		'taws-america': ['2026-03-15T23:00:00Z'],
-		'taws-u': ['2026-03-14T23:00:00Z'],
+		'taws-u': [
+      '2026-03-14T23:00:00Z'
+    ],
 		'taws-open': []
 	};
 
@@ -69,6 +71,12 @@
 			minute: '2-digit',
 			hour12: true
 		});
+	}
+
+	function isToday(date: Date): boolean {
+		const d = new Date(date.toLocaleString('en-US', { timeZone: userTz }));
+		const n = new Date(now.toLocaleString('en-US', { timeZone: userTz }));
+		return d.getFullYear() === n.getFullYear() && d.getMonth() === n.getMonth() && d.getDate() === n.getDate();
 	}
 
 	function relativeLabel(date: Date): string {
@@ -159,7 +167,7 @@
 		<div class="cards-col">
 			<div class="cards-grid">
 				{#each cards as card}
-					<div class="t-card" style="--card-color: {card.tournament.color}">
+					<div class="t-card" class:today={card.upcoming.some(isToday)} style="--card-color: {card.tournament.color}">
 						<div class="card-accent"></div>
 						<div class="card-body">
 							<div class="card-header">
@@ -241,7 +249,6 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 		gap: 10px;
-		margin-bottom: 28px;
 	}
 
 	.t-card {
@@ -261,6 +268,14 @@
 	.t-card:hover {
 		background: rgba(255, 255, 255, 0.2);
 		border-color: color-mix(in srgb, var(--card-color) 60%, rgba(255, 255, 255, 0.4));
+	}
+
+	.t-card.today {
+		border-color: color-mix(in srgb, var(--card-color) 70%, transparent);
+		box-shadow:
+			0 0 10px color-mix(in srgb, var(--card-color) 40%, transparent),
+			0 0 24px color-mix(in srgb, var(--card-color) 20%, transparent),
+			0 2px 12px rgba(0, 0, 0, 0.15);
 	}
 
 	.card-accent {
@@ -381,7 +396,7 @@
 		font-weight: 800;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
-		color: rgba(255, 255, 255, 0.7);
+		color: rgba(255, 255, 255, 0.8);
 		margin: 0;
 	}
 
@@ -413,6 +428,7 @@
 	.cards-col {
 		width: 100%;
 	}
+
 
 	/* Event list */
 
@@ -502,26 +518,11 @@
 	}
 
 	@media (min-width: 900px) {
-		.layout {
-			flex-direction: row;
-			align-items: flex-start;
-			gap: 24px;
-		}
-
-		.cards-col {
-			width: 280px;
-			flex-shrink: 0;
-			position: sticky;
-			top: 20px;
-		}
-
 		.cards-grid {
-			grid-template-columns: 1fr;
-			margin-bottom: 0;
+			grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 		}
 
 		.event-list-section {
-			flex: 1;
 			min-width: 0;
 		}
 	}

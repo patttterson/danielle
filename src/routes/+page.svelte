@@ -1,8 +1,11 @@
-<script lang="ts">
+<script context="module" lang="ts">
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 	import Schedule from '$lib/Schedule.svelte';
 	import tetrio from '$lib/assets/tetrio-purple.png';
 	import taws from '$lib/assets/taws-recolored.png';
+
+	declare const __COMMIT_HASH__: string;
+	const commitHash = __COMMIT_HASH__;
 </script>
 
 <div class="banner">
@@ -40,7 +43,17 @@
 	<Schedule />
 </div>
 
+<div class="footer">
+	<p style="text-align: center; font-size: 0.9rem; color: #fff;">
+		<a href="https://github.com/patttterson/danielle" target="_blank" rel="noopener noreferrer">{commitHash}</a> | Developed by <a href="https://minji.love" target="_blank" rel="noopener noreferrer">patty</a>
+	</p>
+</div>
+
 <style>
+	a {
+		color: inherit;
+	}
+
 	.banner {
 		display: grid;
 		grid-template-columns: 1fr auto 1fr;
@@ -202,5 +215,9 @@
 			margin-bottom: 0;
 			border-radius: 12px 12px 0 0;
 		}
+	}
+
+	.footer {
+		padding: 12px 20px;
 	}
 </style>
