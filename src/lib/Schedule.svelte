@@ -18,35 +18,35 @@
 			name: 'TAWS',
 			shortName: 'TAWS',
 			color: '#a78bfa',
-			description: 'The original weekly tournament, double elimination, SS rank and below.'
+			description: 'SS rank and below, double elim'
 		},
 		{
 			id: 'taws-america',
 			name: 'TAWS America',
 			shortName: 'America',
 			color: '#34d399',
-			description: 'Americas-friendly timeslot.'
+			description: 'Same as TAWS but scheduled for America-friendly timeslot'
 		},
 		{
 			id: 'taws-u',
 			name: 'TAWS U',
 			shortName: 'TAWS U',
 			color: '#f472b6',
-			description: 'U Rank and below.'
+			description: 'U Rank and below'
 		},
 		{
 			id: 'taws-asia',
 			name: 'TAWS Asia',
 			shortName: 'Asia',
 			color: '#f59e0b',
-			description: 'Asia-friendly timeslot.'
+			description: 'Asia-friendly timeslot'
 		},
 		{
 			id: 'taws-open',
 			name: 'TAWS Open',
 			shortName: 'Open',
 			color: '#60a5fa',
-			description: 'No rank ceiling, open to all players. Schedule varies.'
+			description: 'No rank ceiling, open to all players - Schedule varies'
 		}
 	];
 
@@ -521,8 +521,28 @@
 		.cards-grid {
 			grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 		}
+	}
+
+	@media (min-width: 1100px) {
+		.layout {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 24px;
+		}
+
+		.cards-col {
+			width: 32%;
+			flex-shrink: 0;
+			position: sticky;
+			top: 20px;
+		}
+
+		.cards-grid {
+			grid-template-columns: 1fr;
+		}
 
 		.event-list-section {
+			flex: 1;
 			min-width: 0;
 		}
 	}
